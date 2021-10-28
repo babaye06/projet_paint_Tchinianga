@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 public class Window extends JFrame implements ActionListener {
 
     Drawing Draw = new Drawing();
+    JOptionPane info = new JOptionPane();
+
 
     public Window(String Title, int x, int y)
     {
@@ -37,6 +39,7 @@ public class Window extends JFrame implements ActionListener {
         //Creation de 'A propos'
         JMenu menu2 = new JMenu("About");
         JMenuItem auteur = new JMenuItem("Authors");
+        auteur.addActionListener(this);
         menu2.add(auteur);
         m.add(menu2);
 
@@ -80,6 +83,16 @@ public class Window extends JFrame implements ActionListener {
         noir.addActionListener(this);
         rose.addActionListener(this);
         rouge.addActionListener(this);
+        vert.addActionListener(this);
+        bleu.addActionListener(this);
+        magenta.addActionListener(this);
+        orange.addActionListener(this);
+        jaune.addActionListener(this);
+        carre.addActionListener(this);
+        rectangle.addActionListener(this);
+        cercle.addActionListener(this);
+        ellipse.addActionListener(this);
+
 
         //Creation de la SouthPanel1
         JPanel southPanel = new JPanel();
@@ -108,11 +121,6 @@ public class Window extends JFrame implements ActionListener {
         Principal.add(southPanel2);
         contentPanel.add(Principal,"South");
 
-        //Information auteur
-        JOptionPane info = new JOptionPane();
-        info.showInternalMessageDialog( info, "Authors : Bastien Tchinianga",
-                "information",JOptionPane.INFORMATION_MESSAGE);
-
         this.setVisible(true);
 
 
@@ -125,7 +133,7 @@ public class Window extends JFrame implements ActionListener {
         {
             case "Noir" :
                 Draw.setC(Color.BLACK);
-                // System.out.println("Bouton noir cliqué" + " " + Draw.c );
+                //System.out.println("Bouton noir cliqué" + " " + Draw.c );
                 break;
             case "Rouge" :
                 Draw.setC(Color.RED);
@@ -160,11 +168,16 @@ public class Window extends JFrame implements ActionListener {
             case "Cercle" :
                 Draw.setNameFigure("Cercle");
                 break;
-
+            case "Authors" :
+                System.out.println("Auteur cliqué");
+                info.showInternalMessageDialog( info, "Authors : Bastien Tchinianga",
+                        "information",JOptionPane.INFORMATION_MESSAGE);
+                break;
         }
     }
     public static void main (String args[])
     {
+
         Window win = new Window("Projet paint",800,600);
     }
 }
