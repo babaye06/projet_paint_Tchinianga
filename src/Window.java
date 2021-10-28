@@ -1,10 +1,48 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Window extends JFrame {
+public class Window extends JFrame implements ActionListener {
 
-    public Window(String Title,int x,int y)
+    Drawing Draw = new Drawing();
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        String cmd=e.getActionCommand();
+        switch (cmd)
+        {
+            case "Noir" :
+                Draw.c = Color.BLACK;
+               // System.out.println("Bouton noir cliqué" + " " + Draw.c );
+                break;
+            case "Rouge" :
+                Draw.c = Color.RED;
+                break;
+            case "Vert" :
+                Draw.c = Color.GREEN;
+                break;
+            case "Bleu" :
+                Draw.c = Color.BLUE;
+                break;
+            case "Jaune" :
+                Draw.c = Color.YELLOW;
+                break;
+            case "Rose" :
+                Draw.c = Color.PINK;
+                break;
+            case "Magenta" :
+                Draw.c = Color.MAGENTA;
+                break;
+            case "Orange" :
+                Draw.c = Color.ORANGE;
+                break;
+
+        }
+    }
+
+    public Window(String Title, int x, int y)
     {
         // Initialisation de la fenetre
         super(Title);
@@ -52,9 +90,6 @@ public class Window extends JFrame {
         JButton rectangle = new JButton("Rectangle");
         JButton cercle = new JButton("Cercle");
 
-
-
-
         //Couleur des boutons
         noir.setOpaque(true);
         noir.setBackground(Color.BLACK);
@@ -73,6 +108,10 @@ public class Window extends JFrame {
         orange.setOpaque(true);
         orange.setBackground(Color.ORANGE);
 
+        //Configurer les boutons pour qu'ils reagissent aux evenements de clics
+        noir.addActionListener(this);
+        rose.addActionListener(this);
+        rouge.addActionListener(this);
 
         //Creation de la SouthPanel1
         JPanel southPanel = new JPanel();
@@ -102,6 +141,8 @@ public class Window extends JFrame {
         contentPanel.add(Principal,"South");
 
         this.setVisible(true);
+
+
     }
     public static void main (String args[])
     {
