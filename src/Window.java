@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Color;
 
 public class Window extends JFrame {
 
@@ -35,8 +36,6 @@ public class Window extends JFrame {
 
         setJMenuBar(m);
 
-        //contentPanel.add(Noir);
-
         //Creation des boutons pour la couleur
         JButton noir= new JButton("Noir");
         JButton rouge = new JButton("Rouge");
@@ -47,20 +46,37 @@ public class Window extends JFrame {
         JButton magenta = new JButton("Magenta");
         JButton orange = new JButton("Orange");
 
+        //Creation des boutons pour les figures
+        JButton ellipse = new JButton("Elipse");
+        JButton carre = new JButton("Carré");
+        JButton rectangle = new JButton("Rectangle");
+        JButton cercle = new JButton("Cercle");
+
+
+
+
+        //Couleur des boutons
+        noir.setOpaque(true);
         noir.setBackground(Color.BLACK);
+        rouge.setOpaque(true);
         rouge.setBackground(Color.RED);
+        vert.setOpaque(true);
         vert.setBackground(Color.GREEN);
+        bleu.setOpaque(true);
         bleu.setBackground(Color.BLUE);
+        jaune.setOpaque(true);
         jaune.setBackground(Color.YELLOW);
+        rose.setOpaque(true);
         rose.setBackground(Color.PINK);
+        magenta.setOpaque(true);
         magenta.setBackground(Color.MAGENTA);
+        orange.setOpaque(true);
         orange.setBackground(Color.ORANGE);
 
 
-
-        //Creation de la SouthPanel
+        //Creation de la SouthPanel1
         JPanel southPanel = new JPanel();
-        southPanel.setLayout(new GridLayout(0,6));
+        southPanel.setLayout(new GridLayout(0,4));
         southPanel.add(noir);
         southPanel.add(rouge);
         southPanel.add(vert);
@@ -70,20 +86,20 @@ public class Window extends JFrame {
         southPanel.add(magenta);
         southPanel.add(orange);
 
-        contentPanel.add(southPanel,"South");
-/*
+        //Creation de la SouthPanel 2
         JPanel southPanel2 = new JPanel();
-        southPanel2.setLayout(new GridLayout(10,30));
-        JButton elipse = new JButton("Elipse");
-        southPanel2.add(elipse);
+        southPanel2.setLayout(new GridLayout(0,2));
+        southPanel2.add(ellipse);
+        southPanel2.add(carre);
+        southPanel2.add(rectangle);
+        southPanel2.add(cercle);
 
-        contentPanel.add(southPanel2,"North");
-*/
-
-
-
-
-
+        //Creation de la Panel princpal qui contien nos neux Jpannel
+        JPanel Principal = new JPanel();
+        Principal.setLayout(new GridLayout(1,2));
+        Principal.add(southPanel);
+        Principal.add(southPanel2);
+        contentPanel.add(Principal,"South");
 
         this.setVisible(true);
     }
