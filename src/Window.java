@@ -7,40 +7,6 @@ import java.awt.event.ActionListener;
 public class Window extends JFrame implements ActionListener {
 
     Drawing Draw = new Drawing();
-    @Override
-    public void actionPerformed(ActionEvent e)
-    {
-        String cmd=e.getActionCommand();
-        switch (cmd)
-        {
-            case "Noir" :
-                Draw.c = Color.BLACK;
-               // System.out.println("Bouton noir cliqué" + " " + Draw.c );
-                break;
-            case "Rouge" :
-                Draw.c = Color.RED;
-                break;
-            case "Vert" :
-                Draw.c = Color.GREEN;
-                break;
-            case "Bleu" :
-                Draw.c = Color.BLUE;
-                break;
-            case "Jaune" :
-                Draw.c = Color.YELLOW;
-                break;
-            case "Rose" :
-                Draw.c = Color.PINK;
-                break;
-            case "Magenta" :
-                Draw.c = Color.MAGENTA;
-                break;
-            case "Orange" :
-                Draw.c = Color.ORANGE;
-                break;
-
-        }
-    }
 
     public Window(String Title, int x, int y)
     {
@@ -69,7 +35,9 @@ public class Window extends JFrame implements ActionListener {
         m.add(menu1);
 
         //Creation de 'A propos'
-        JMenu menu2 = new JMenu("A propos");
+        JMenu menu2 = new JMenu("About");
+        JMenuItem auteur = new JMenuItem("Authors");
+        menu2.add(auteur);
         m.add(menu2);
 
         setJMenuBar(m);
@@ -85,7 +53,7 @@ public class Window extends JFrame implements ActionListener {
         JButton orange = new JButton("Orange");
 
         //Creation des boutons pour les figures
-        JButton ellipse = new JButton("Elipse");
+        JButton ellipse = new JButton("Ellipse");
         JButton carre = new JButton("Carré");
         JButton rectangle = new JButton("Rectangle");
         JButton cercle = new JButton("Cercle");
@@ -140,9 +108,60 @@ public class Window extends JFrame implements ActionListener {
         Principal.add(southPanel2);
         contentPanel.add(Principal,"South");
 
+        //Information auteur
+        JOptionPane info = new JOptionPane();
+        info.showInternalMessageDialog( info, "Authors : Bastien Tchinianga",
+                "information",JOptionPane.INFORMATION_MESSAGE);
+
         this.setVisible(true);
 
 
+    }
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        String cmd=e.getActionCommand();
+        switch (cmd)
+        {
+            case "Noir" :
+                Draw.setC(Color.BLACK);
+                // System.out.println("Bouton noir cliqué" + " " + Draw.c );
+                break;
+            case "Rouge" :
+                Draw.setC(Color.RED);
+                break;
+            case "Vert" :
+                Draw.setC(Color.GREEN);
+                break;
+            case "Bleu" :
+                Draw.setC(Color.BLUE);
+                break;
+            case "Jaune" :
+                Draw.setC(Color.YELLOW);
+                break;
+            case "Rose" :
+                Draw.setC(Color.PINK);
+                break;
+            case "Magenta" :
+                Draw.setC(Color.MAGENTA);
+                break;
+            case "Orange" :
+                Draw.setC(Color.ORANGE);
+                break;
+            case "Ellipse" :
+                Draw.setNameFigure("Ellipse");
+                break;
+            case "Carre" :
+                Draw.setNameFigure("Carre");
+                break;
+            case "Rectangle" :
+                Draw.setNameFigure("Rectangle");
+                break;
+            case "Cercle" :
+                Draw.setNameFigure("Cercle");
+                break;
+
+        }
     }
     public static void main (String args[])
     {

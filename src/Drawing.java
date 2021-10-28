@@ -14,7 +14,6 @@ public class Drawing extends JPanel {
         list.add(rect);
     }
 
-    public void setC(Color c) {
-        this.c = c;
-    }
+    public void setC(Color c) {this.c = c;}
+    public void setNameFigure(String name) {this.nameFigure = name;}
 }
