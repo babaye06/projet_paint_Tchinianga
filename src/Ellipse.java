@@ -10,20 +10,21 @@ public class Ellipse extends Figure
     public Ellipse(int px, int py, Color c)
     {
         this.c = c;
+        this.x = px;
+        this.y =py;
+        this.semiAxysX=50;
+        this.semiAxysY=100;
         Point p = new Point(px,py);
-        this.semiAxysX = this.semiAxysY =0;
-    }
 
+    }
 
     @Override
-    public void setBoundingBox(int heightBB, int widthBB)
-    {
-        this.semiAxysX = heightBB;
-        this.semiAxysY = widthBB;
-    }
+    public void setBoundingBox(int heightBB, int widthBB) {}
 
     @Override
     public void draw(Graphics g) {
+        g.setColor(this.c);
+        g.fillOval(this.x,this.y,50,30);
     }
     /*-----------------------------------------------------------------*/
     protected int semiAxysX, semiAxysY;

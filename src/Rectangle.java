@@ -4,13 +4,19 @@ public class Rectangle extends Figure
 {
     public Rectangle()
     {
-        this.length = this.width = 0;
+        this.c = Color.BLUE;
+        this.length = 15;
+        this.width = 5;
     }
 
-   public Rectangle (int px, int py, Color c) {
+   public Rectangle (int px, int py, Color c)
+   {
        Point p = new Point(px, py);
+       this.x = px;
+       this.y=py;
        this.c = c;
-       this.length = this.width = 0;
+       this.length =50;
+       this.width = 150;
    }
 
    public int getPerimeter(Rectangle r )
@@ -19,12 +25,16 @@ public class Rectangle extends Figure
        return perimetre;
    }
 
-
     @Override
     public void setBoundingBox(int heightBB, int widthBB) {}
 
     @Override
-    public void draw(Graphics g) {}
+    public void draw(Graphics g)
+    {
+        g.setColor(this.c);
+        g.fillRect(this.x,this.y,this.width,this.length);
+    }
+
     /*-----------------------------------------------------------------*/
 
     protected int length,width;

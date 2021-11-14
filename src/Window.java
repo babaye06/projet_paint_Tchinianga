@@ -9,7 +9,6 @@ public class Window extends JFrame implements ActionListener {
     Drawing Draw = new Drawing();
     JOptionPane info = new JOptionPane();
 
-
     public Window(String Title, int x, int y)
     {
         // Initialisation de la fenetre
@@ -57,7 +56,7 @@ public class Window extends JFrame implements ActionListener {
 
         //Creation des boutons pour les figures
         JButton ellipse = new JButton("Ellipse");
-        JButton carre = new JButton("Carré");
+        JButton carre = new JButton("Carre");
         JButton rectangle = new JButton("Rectangle");
         JButton cercle = new JButton("Cercle");
 
@@ -94,7 +93,7 @@ public class Window extends JFrame implements ActionListener {
         ellipse.addActionListener(this);
 
 
-        //Creation de la SouthPanel1
+        //Creation de la SouthPanel1 (couleurs)
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new GridLayout(0,4));
         southPanel.add(noir);
@@ -106,7 +105,7 @@ public class Window extends JFrame implements ActionListener {
         southPanel.add(magenta);
         southPanel.add(orange);
 
-        //Creation de la SouthPanel 2
+        //Creation de la SouthPanel 2 (figures)
         JPanel southPanel2 = new JPanel();
         southPanel2.setLayout(new GridLayout(0,2));
         southPanel2.add(ellipse);
@@ -114,16 +113,16 @@ public class Window extends JFrame implements ActionListener {
         southPanel2.add(rectangle);
         southPanel2.add(cercle);
 
-        //Creation de la Panel princpal qui contien nos neux Jpannel
+        //Creation de la Panel princpale qui contient les deux Jpannel
         JPanel Principal = new JPanel();
         Principal.setLayout(new GridLayout(1,2));
         Principal.add(southPanel);
         Principal.add(southPanel2);
         contentPanel.add(Principal,"South");
 
+        contentPanel.add(Draw,"Center");
+
         this.setVisible(true);
-
-
     }
     @Override
     public void actionPerformed(ActionEvent e)
@@ -169,15 +168,11 @@ public class Window extends JFrame implements ActionListener {
                 Draw.setNameFigure("Cercle");
                 break;
             case "Authors" :
-                System.out.println("Auteur cliqué");
                 info.showInternalMessageDialog( info, "Authors : Bastien Tchinianga",
                         "information",JOptionPane.INFORMATION_MESSAGE);
                 break;
         }
     }
     public static void main (String args[])
-    {
-
-        Window win = new Window("Projet paint",800,600);
-    }
+    {Window win = new Window("Projet paint",800,600);}
 }

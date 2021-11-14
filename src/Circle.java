@@ -4,15 +4,20 @@ public class Circle extends Ellipse
 {
     public Circle(){}
 
-
-    @Override
-    public void setBoundingBox(int heightBB, int widthBB)
+    public Circle(int px, int py, Color c)
     {
-        this.semiAxysX = heightBB;
-        this.semiAxysY = widthBB;
+        this.c = c;
+        this.x = px;
+        this.y = py;
+        this.semiAxysX = 100;
+        this.semiAxysY =100;
     }
+    @Override
+    public void setBoundingBox(int heightBB, int widthBB) {}
 
     @Override
     public void draw(Graphics g) {
+        g.setColor(this.c);
+        g.fillOval(this.x,this.y,this.semiAxysX,this.semiAxysY);
     }
 }

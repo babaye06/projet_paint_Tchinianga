@@ -18,11 +18,12 @@ public abstract class Figure
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Figure de couleur" + c;
     }
 
 
     /*-----------------------------------------------------------------*/
 
     protected Color c;
+    protected int x,y;
 }
