@@ -72,11 +72,10 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
         }
     }
 
-    public void save(){
+    public void save(String NomFichier){
         try
         {
-            System.out.println("Methose save appelé");
-            FileOutputStream fos = new FileOutputStream("sauveDessin");
+            FileOutputStream fos = new FileOutputStream(NomFichier);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
 
             oos.writeInt(list.size());

@@ -30,8 +30,10 @@ public class Window extends JFrame implements ActionListener {
         JMenuItem open = new JMenuItem("Open") ;
         menu1.add(open);
         JMenuItem save = new JMenuItem("Save") ;
+        save.addActionListener(this);
         menu1.add(save);
         JMenuItem quit = new JMenuItem("Quit") ;
+        quit.addActionListener(this);
         menu1.add(quit);
         m.add(menu1);
 
@@ -176,11 +178,15 @@ public class Window extends JFrame implements ActionListener {
                         "information",JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Save" :
-                Draw.save();
+                Draw.save("Ok");
                 break;
             case "Clear" :
                 Draw.Clear();
                 break;
+            case "Quit" :
+                this.dispose();
+                break;
+
         }
     }
     public static void main (String args[])
