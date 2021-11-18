@@ -42,6 +42,10 @@ public class Window extends JFrame implements ActionListener {
         menu2.add(auteur);
         m.add(menu2);
 
+        JButton clear = new JButton("Clear");
+        clear.addActionListener(this);
+        m.add(clear);
+
         setJMenuBar(m);
 
         //Creation des boutons pour la couleur
@@ -170,6 +174,12 @@ public class Window extends JFrame implements ActionListener {
             case "Authors" :
                 info.showInternalMessageDialog( info, "Authors : Bastien Tchinianga",
                         "information",JOptionPane.INFORMATION_MESSAGE);
+                break;
+            case "Save" :
+                Draw.save();
+                break;
+            case "Clear" :
+                Draw.Clear();
                 break;
         }
     }

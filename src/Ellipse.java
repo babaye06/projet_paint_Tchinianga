@@ -12,19 +12,19 @@ public class Ellipse extends Figure
         this.c = c;
         this.x = px;
         this.y =py;
-        this.semiAxysX=50;
-        this.semiAxysY=100;
-        Point p = new Point(px,py);
-
+        this.semiAxysX = this.semiAxysY = 0;
     }
 
     @Override
-    public void setBoundingBox(int heightBB, int widthBB) {}
+    public void setBoundingBox(int heightBB, int widthBB) {
+        this.semiAxysY = widthBB;
+        this.semiAxysX = heightBB;
+    }
 
     @Override
     public void draw(Graphics g) {
         g.setColor(this.c);
-        g.fillOval(this.x,this.y,50,30);
+        g.fillOval(this.x,this.y,this.semiAxysY,this.semiAxysX);
     }
     /*-----------------------------------------------------------------*/
     protected int semiAxysX, semiAxysY;

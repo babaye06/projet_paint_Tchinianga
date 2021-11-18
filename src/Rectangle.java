@@ -11,12 +11,10 @@ public class Rectangle extends Figure
 
    public Rectangle (int px, int py, Color c)
    {
-       Point p = new Point(px, py);
        this.x = px;
        this.y=py;
        this.c = c;
-       this.length =50;
-       this.width = 150;
+       this.length = this.width = 0;
    }
 
    public int getPerimeter(Rectangle r )
@@ -26,7 +24,10 @@ public class Rectangle extends Figure
    }
 
     @Override
-    public void setBoundingBox(int heightBB, int widthBB) {}
+    public void setBoundingBox(int heightBB, int widthBB) {
+        this.width = widthBB;
+        this.length = heightBB;
+    }
 
     @Override
     public void draw(Graphics g)
@@ -34,6 +35,7 @@ public class Rectangle extends Figure
         g.setColor(this.c);
         g.fillRect(this.x,this.y,this.width,this.length);
     }
+
 
     /*-----------------------------------------------------------------*/
 

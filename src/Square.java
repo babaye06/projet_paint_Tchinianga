@@ -5,16 +5,15 @@ public class Square extends Rectangle
     public Square(){}
 
     public Square (int px, int py, Color c) {
-        Point p = new Point(px, py);
         this.c = c;
         this.x = px;
         this.y = py;
-        this.length = 100;
-        this.width = 100;
+        this.length = this.width = 0;
     }
     @Override
-    public void setBoundingBox(int heightBB, int widthBB) {}
-
+    public void setBoundingBox(int heightBB, int widthBB) {
+        this.width=this.length=heightBB;
+    }
     @Override
     public void draw(Graphics g) {
         g.setColor(this.c);

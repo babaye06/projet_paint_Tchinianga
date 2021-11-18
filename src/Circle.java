@@ -9,11 +9,12 @@ public class Circle extends Ellipse
         this.c = c;
         this.x = px;
         this.y = py;
-        this.semiAxysX = 100;
-        this.semiAxysY =100;
+        this.semiAxysX = this.semiAxysY = 0;
     }
     @Override
-    public void setBoundingBox(int heightBB, int widthBB) {}
+    public void setBoundingBox(int heightBB, int widthBB) {
+        this.semiAxysY = this.semiAxysX = heightBB;
+    }
 
     @Override
     public void draw(Graphics g) {

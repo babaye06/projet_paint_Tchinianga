@@ -1,7 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-public abstract class Figure
+public abstract class Figure implements Serializable
 {
     public abstract void setBoundingBox (int heightBB, int widthBB);
 
@@ -20,7 +23,6 @@ public abstract class Figure
     public String toString() {
         return "Figure de couleur" + c;
     }
-
 
     /*-----------------------------------------------------------------*/
 
