@@ -10,8 +10,8 @@ public class Ellipse extends Figure
     public Ellipse(int px, int py, Color c)
     {
         this.c = c;
-        this.x = px;
-        this.y =py;
+        this.p.setX(px);
+        this.p.setY(py);
         this.semiAxysX = this.semiAxysY = 0;
     }
 
@@ -24,7 +24,7 @@ public class Ellipse extends Figure
     @Override
     public void draw(Graphics g) {
         g.setColor(this.c);
-        g.fillOval(this.x,this.y,this.semiAxysY,this.semiAxysX);
+        g.fillOval(this.p.getX(),this.p.getY(), this.semiAxysY,this.semiAxysX);
     }
     /*-----------------------------------------------------------------*/
     protected int semiAxysX, semiAxysY;

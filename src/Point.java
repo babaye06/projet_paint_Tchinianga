@@ -19,8 +19,10 @@ public class Point
     {this.X = this.Y =0;}
 
     public Point (int a, int b)
-    {this.X = a;
-        this.Y = b;}
+    {
+        this.X = a;
+        this.Y = b;
+    }
     /*-----------------------------------------------------------------*/
     private int X, Y;
 }

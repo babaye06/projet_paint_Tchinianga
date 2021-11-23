@@ -6,8 +6,8 @@ public class Square extends Rectangle
 
     public Square (int px, int py, Color c) {
         this.c = c;
-        this.x = px;
-        this.y = py;
+        this.p.setY(py);
+        this.p.setX(px);
         this.length = this.width = 0;
     }
     @Override
@@ -17,7 +17,7 @@ public class Square extends Rectangle
     @Override
     public void draw(Graphics g) {
         g.setColor(this.c);
-        g.fillRect(this.x,this.y,this.width,this.length);
+        g.fillRect(this.p.getX(),this.p.getY(),this.width,this.length);
     }
 
     public void setLength (int l) { this.length = l;}

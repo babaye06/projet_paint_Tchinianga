@@ -11,10 +11,11 @@ public class Rectangle extends Figure
 
    public Rectangle (int px, int py, Color c)
    {
-       this.x = px;
-       this.y=py;
+       this.p.setX(px);
+       this.p.setY(py);
        this.c = c;
        this.length = this.width = 0;
+       //System.out.println("Coordonné du point " +this.p.getX()+" "+this.p.getY());
    }
 
    public int getPerimeter(Rectangle r )
@@ -33,7 +34,7 @@ public class Rectangle extends Figure
     public void draw(Graphics g)
     {
         g.setColor(this.c);
-        g.fillRect(this.x,this.y,this.width,this.length);
+        g.fillRect(this.p.getX(),this.p.getY(),this.width,this.length);
     }
 
 

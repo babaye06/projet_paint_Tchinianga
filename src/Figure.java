@@ -15,6 +15,11 @@ public abstract class Figure implements Serializable
         return c;
     }
 
+    public void setP(int px, int py) {
+        this.p.setX(px);
+        this.p.setY(py);
+    }
+
     public Figure(java.awt.Color c, Point p) {}
 
     public Figure(){}
@@ -27,5 +32,5 @@ public abstract class Figure implements Serializable
     /*-----------------------------------------------------------------*/
 
     protected Color c;
-    protected int x,y;
+    protected Point p = new Point();
 }

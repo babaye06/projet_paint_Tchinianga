@@ -7,8 +7,8 @@ public class Circle extends Ellipse
     public Circle(int px, int py, Color c)
     {
         this.c = c;
-        this.x = px;
-        this.y = py;
+        this.p.setX(px);
+        this.p.setY(py);
         this.semiAxysX = this.semiAxysY = 0;
     }
     @Override
@@ -19,6 +19,6 @@ public class Circle extends Ellipse
     @Override
     public void draw(Graphics g) {
         g.setColor(this.c);
-        g.fillOval(this.x,this.y,this.semiAxysX,this.semiAxysY);
+        g.fillOval(this.p.getX(),this.p.getY(),this.semiAxysX,this.semiAxysY);
     }
 }
